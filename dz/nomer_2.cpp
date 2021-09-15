@@ -6,7 +6,6 @@ int main() {
 		int q = vec[j];
 		int p = j;
 		while (p > 0 && vec[p - 1] > vec[p]) {
-			std::cout << p << ' ';
 			std::swap(vec[p - 1], vec[p]);
 			p -= 1;
 		}
