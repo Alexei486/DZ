@@ -3,7 +3,6 @@
 int main() {
 	std::vector<int> vec = { 7, -42, 5, 0, 16, -8 };
 	for (int j = 1; j < vec.size(); j++) {
-		int q = vec[j];
 		int p = j;
 		while (p > 0 && vec[p - 1] > vec[p]) {
 			std::cout << p << ' ';
