@@ -5,7 +5,6 @@ int main() {
 	for (int j = 1; j < vec.size(); j++) {
 		int p = j;
 		while (p > 0 && vec[p - 1] > vec[p]) {
-			std::cout << p << ' ';
 			std::swap(vec[p - 1], vec[p]);
 			p -= 1;
 		}
