@@ -19,14 +19,12 @@ std::function < double(double, double) > mem3 = [](double x1, double x2)
 };
 int main()
 {
-	int b;
-	std::cin >>b;
 	double x1 = 1.23;
 	double x2 = 4.56;
-	std::vector <std::function < double(double, double) >> vec;
-	vec.push_back(mem);
-	vec.push_back(mem1);
-	vec.push_back(mem2);
-	vec.push_back(mem3);
-	std::cout << (vec[b])(x1, x2);
+	std::vector <std::function < double(double, double) >> functions{ mem,mem1,mem2,mem3 };
+	std::cout << (mem)(x1, x2) << std::endl;
+	std::cout << (mem1)(x1, x2) << std::endl;
+	std::cout << (mem2)(x1, x2) << std::endl;
+	std::cout << (mem3)(x1, x2) << std::endl;
+	return 0;
 }
