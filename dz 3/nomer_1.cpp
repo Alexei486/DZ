@@ -2,7 +2,7 @@
 #include<functional>
 int fb(int n)
 {
-	return (n => 1) ?  fib(n - 1) + fib(n - 2) : 1;
+	return (n => 1) ?  fb(n - 1) + fb(n - 2) : 1;
 }
 int main()
 {
