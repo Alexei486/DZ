@@ -10,7 +10,6 @@ void TopDownMerge(int iBegin, int iMiddle, int iEnd, std::vector <int>& A)
 	{
 		if (i < iMiddle && (j >= iEnd || A[i] <= A[j]))
 		{
-			B.push_back(A[i]);
 			B[k] = A[i];
 			++i;
 		}
