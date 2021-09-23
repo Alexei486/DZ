@@ -1,6 +1,10 @@
 #include <iostream>
 #include <functional>
 #include <vector>
+double calculate(double x1, double x2, std::function < double(double, double)> A)
+{
+	return A(x1, x2);
+}
 
 int main()
 {
@@ -10,10 +14,10 @@ int main()
 	auto mem3 = [](double x1, double x2) {return x1 / x2; };
 	double x1 = 1.23;
 	double x2 = 4.56;
-	std::vector <std::function < double(double, double) >> calculate { mem,mem1,mem2,mem3 };
-	for (int i = 0; i < 4; i++)
+	std::vector <std::function < double(double, double) >> function { mem,mem1,mem2,mem3 };
+	for (auto &dd:function)
 	{
-		std::cout << calculate[i](x1, x2) << std::endl;
+		std::cout << calculate(x1,x2,dd)<< std::endl;
 	}
 	return 0;
 }
