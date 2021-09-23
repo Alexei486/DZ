@@ -2,7 +2,15 @@
 #include<functional>
 int fb(int n)
 {
-	return (n => 1) ?  fb(n - 1) + fb(n - 2) : 1;
+	if (n > 1)
+	{
+
+		return (fb(n - 1) + fb(n - 2));
+	}
+	else
+	{
+		return 1;
+	}
 }
 int main()
 {
