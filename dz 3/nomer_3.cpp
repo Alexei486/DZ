@@ -6,14 +6,14 @@ std::vector <int> ascending(std::vector <int> vec)
     [&vec]()
     {
         std::sort(std::begin(vec), std::end(vec), [](int a, int b) {return a > b; });
-    };
+    }();
     for (auto i : vec) {std::cout << i << " ";}
     return (vec);
 }
 std::vector <int>  descending(std::vector <int> vec)
 {
     [&vec]() {std::sort(std::begin(vec),std::end(vec), [](int a, int b) {return a < b;});
-    };
+    }();
     for (auto i : vec) { std::cout << i << " "; };
     return (vec);
 }
