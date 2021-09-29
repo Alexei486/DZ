@@ -18,9 +18,12 @@ struct Boss
 
 void Fight(int Weapon, int Pet, int Money)
 {
-	int Health = rand() % 50;
+	std::mt19937 gen;
+	gen.seed(time(0));
+	int Health = gen() % 100;
 	int move = 5;
 	int Drop = Health / 10;
+	int debuff = 0;
 	std::string m;
 	while (move != 0)
 	{
@@ -29,14 +32,28 @@ void Fight(int Weapon, int Pet, int Money)
 		system("cls");
 		if (m == "Cheat")
 		{
+		Money = 0;
+		std::cout << "Go away, Hacker!";
 		}
 		else
 		{
-			std::cout << "Mob Health: " << Health << "\n";
-			std::cout << "summary: " << Weapon + Pet << "\n";
-			std::cout << "you have " + std::to_string(move) + " moves left" << "\n";
-			Health = Health - Weapon - Pet;
-			--move;
+			if (Health > 0)
+			{
+				debuff += gen() % 2;
+				std::cout << "Mob gave you debuff: " << debuff << "\n";
+				std::cout << "Mob Health: " << Health << "\n";
+				std::cout << "summary attack: " << Weapon + Pet - debuff<< "\n";
+				std::cout << "you have " + std::to_string(move) + " moves left" << "\n";
+				Health = Health - Weapon - Pet;
+				--move;
+			}
+			else
+			{
+				std::cout << "Mob Health: " << "0" << "\n";
+				std::cout << "You won! ";
+				break;
+			}
+
 		}
 
 	}
@@ -237,9 +254,6 @@ int main()
 {
 	Boss Tom{ "Tommy_gungsta",100,1000 };
 	Boss Ivan{ "Ivan", 125,2000 };
-	std::mt19937 gen;
-	gen.seed(time(0));
-
 	int Pet = 0;
 	double Cost = 100;
 	int Upgrade1 = 1;
