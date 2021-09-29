@@ -23,7 +23,7 @@ void Fight(int Weapon, int Pet, int Money)
 	int Health = gen() % 100;
 	auto move = 5;
 	auto Drop = Health / 10;
-	auto debuff = 0;
+	int debuff = 0;
 	std::string m;
 	while (move != 0)
 	{
