@@ -175,7 +175,9 @@ void Start_Game(double* Money, int* Weapon, int* Pet, double* Cost, int* Upgrade
 		}
 		if (m == "Boss")
 		{
-			std::cout << "your attack in the boss fight: " << 10 * *Weapon << "\n";
+			std::cout << "You have exactly one attempt to pass the test questions " <<"\n";
+			Sleep(3000);
+			std::cout << "your attack in the boss fight(10*Weapon): " << 10 * *Weapon << "\n";
 			Sleep(3000);
 			std::cout << "Boss name : " << Tom.name1 << "\n" << "Boss health: " << Tom.Health << "\n" << "Drop from the boss: " << Tom.drop << "\n";
 			Sleep(3000);
@@ -254,8 +256,8 @@ void Start_Game(double* Money, int* Weapon, int* Pet, double* Cost, int* Upgrade
 
 int main()
 {
-	Boss Tom{ "Timur_gungsta",100,1000 };
-	Boss Ivan{ "Ivan_boss_GUNGSTA", 125,2000 };
+	Boss Tom{ "Timur_squire_gungsta",100,1000 };
+	Boss Ivan{ "Ivan_SENSEI_GUNGSTA", 125,2000 };
 	int Pet = 0;
 	double Cost = 100;
 	int Upgrade1 = 1;
