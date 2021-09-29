@@ -220,15 +220,9 @@ void Start_Game(double* Money, int* Weapon, int* Pet, double* Cost, int* Upgrade
 
 int main()
 {
-	Boss Tom;
-	Tom.name1 = "Tommy_gungsta";
-	Tom.Health = 100;
-	Tom.drop = 1000;
-
-	Boss Marya;
-	Marya.name1 = "knife";
-	Marya.Health = 125;
-	Marya.drop = 2000;
+	Boss Tom{ "Tommy_gungsta",100,1000};
+	
+	Boss Marya{"Marya_Knife", 125,2000};
 
 	int Pet = 0;
 	double Cost = 100;
