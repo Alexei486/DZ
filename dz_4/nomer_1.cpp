@@ -220,7 +220,7 @@ void Start_Game(double* Money, int* Weapon, int* Pet, double* Cost, int* Upgrade
 					system("cls");
 					std::cout << "YOU LOSE!"<<"\n";
 					*Money += 15;
-					std::cout << "YOU GOT: 15 POINTS" << "\n";
+					std::cout << "YOU GOT: 15 POINTS FOR KW" << "\n";
 					Sleep(5000);
 
 					system("cls");
@@ -236,6 +236,8 @@ void Start_Game(double* Money, int* Weapon, int* Pet, double* Cost, int* Upgrade
 				Sleep(3000);
 				system("cls");
 				std::cout << "YOU LOSE!";
+				*Money += 24;
+				std::cout << "YOU GOT: 24 POINTS FOR KW" << "\n";
 				Sleep(5000);
 				system("cls");
 			}
@@ -252,8 +254,8 @@ void Start_Game(double* Money, int* Weapon, int* Pet, double* Cost, int* Upgrade
 
 int main()
 {
-	Boss Tom{ "Tommy_gungsta",100,1000 };
-	Boss Ivan{ "Ivan", 125,2000 };
+	Boss Tom{ "Timur_gungsta",100,1000 };
+	Boss Ivan{ "Ivan_boss_GUNGSTA", 125,2000 };
 	int Pet = 0;
 	double Cost = 100;
 	int Upgrade1 = 1;
