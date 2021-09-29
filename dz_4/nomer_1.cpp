@@ -20,10 +20,10 @@ void Fight(int Weapon, int Pet, int Money)
 {
 	std::mt19937 gen;
 	gen.seed(time(0));
-	int Health = gen() % 100;
-	int move = 5;
-	int Drop = Health / 10;
-	int debuff = 0;
+	auto Health = gen() % 100;
+	auto move = 5;
+	auto Drop = Health / 10;
+	auto debuff = 0;
 	std::string m;
 	while (move != 0)
 	{
@@ -158,7 +158,7 @@ void Shop(double* Money, int* Weapon, int* Upgrade1, int* Upgrade2, double* Cost
 }
 void Start_Game(double* Money, int* Weapon, int* Pet, double* Cost, int* Upgrade1, int* Upgrade2, struct Boss Tom, struct  Boss Ivan)
 {
-	int n = 1;
+	const auto n = 1;
 	std::string m;
 	while (n > -10)
 	{
@@ -258,12 +258,12 @@ int main()
 {
 	Boss Tom{ "Timur_squire_gungsta",100,1000 };
 	Boss Ivan{ "Ivan_SENSEI_GUNGSTA", 125,2000 };
-	int Pet = 0;
-	double Cost = 100;
-	int Upgrade1 = 1;
-	int Upgrade2 = 1;
-	int Weapon = 15;
-	double Money = 0;
+	auto Pet = 0;
+	auto Cost = 100.0;
+	auto Upgrade1 = 1;
+	auto Upgrade2 = 1;
+	auto Weapon = 15;
+	auto Money = 0.0;
 	Start_Game(&Money, &Weapon, &Pet, &Cost, &Upgrade1, &Upgrade2, (Boss(Tom)), (Boss(Ivan)));
 	return 0;
 }
