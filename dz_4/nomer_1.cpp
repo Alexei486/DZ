@@ -5,6 +5,8 @@
 #include <time.h>
 #include <dos.h>
 #include <windows.h>
+#include<ctime>
+#include<random>
 struct Boss
 {
 	std::string name1;
@@ -19,14 +21,24 @@ void Fight(int Weapon, int Pet, int Money)
 	int Health = rand() % 50;
 	int move = 5;
 	int Drop = Health / 10;
+	std::string m;
 	while (move != 0)
 	{
-		std::cout << "Health: " << Health << "\n";
-		std::cout << "summary: " << Weapon + Pet << "\n";
+		std::cout << "press ENTER to fight " << "\n";
+		std::getline(std::cin, m);
+		system("cls");
+		if (m == "Cheat")
+		{
+		}
+		else
+		{
+			std::cout << "Mob Health: " << Health << "\n";
+			std::cout << "summary: " << Weapon + Pet << "\n";
+			std::cout << "you have " + std::to_string(move) + " moves left" << "\n";
+			Health = Health - Weapon - Pet;
+			--move;
+		}
 
-		std::cout << "you have " + std::to_string(move) + " moves left" << "\n";
-		Health = Health - Weapon - Pet;
-		--move;
 	}
 	if (Health > 0)
 	{
@@ -53,7 +65,7 @@ void To_Spam(double Money, int Weapon, int Pet)
 	std::cout << "press ENTER to farm some money " << "\n";
 	std::cout << "to enter the store write: Shop " << "\n";
 	std::cout << "to enter the boss fight write: Boss " << "\n";
-	std::cout << "to enter farm fight write: Fight " << "\n";
+	std::cout << "to enter the boss fight write: Fight " << "\n";
 	std::cout << "________________________________________" << "\n";
 
 
@@ -127,7 +139,7 @@ void Shop(double* Money, int* Weapon, int* Upgrade1, int* Upgrade2, double* Cost
 	}
 	return;
 }
-void Start_Game(double* Money, int* Weapon, int* Pet, double* Cost, int* Upgrade1, int* Upgrade2, struct Boss Tom, struct  Boss Marya)
+void Start_Game(double* Money, int* Weapon, int* Pet, double* Cost, int* Upgrade1, int* Upgrade2, struct Boss Tom, struct  Boss Ivan)
 {
 	int n = 1;
 	std::string m;
@@ -162,11 +174,11 @@ void Start_Game(double* Money, int* Weapon, int* Pet, double* Cost, int* Upgrade
 				std::cout << "Fine. But that is not all";
 				Sleep(3000);
 				system("cls");
-				std::cout << "Boss name : " << Marya.name1 << "\n" << "Boss health: " << Marya.Health << "\n" << "Drop from the boss: " << Marya.drop << "\n";
+				std::cout << "Boss name : " <<Ivan.name1 << "\n" << "Boss health: " << Ivan.Health << "\n" << "Drop from the boss: " << Ivan.drop << "\n";
 				Sleep(3000);
-				if (Marya.Health < 10 * *Weapon)
+				if (Ivan.Health < 10 * *Weapon)
 				{
-					*Money += Marya.drop;
+					*Money += Ivan.drop;
 					*Money += Tom.drop;
 					std::cout << "________________________________________" << "\n";
 					Sleep(3000);
@@ -176,7 +188,7 @@ void Start_Game(double* Money, int* Weapon, int* Pet, double* Cost, int* Upgrade
 					Sleep(3000);
 					system("cls");
 					std::cout << "YOU WON!!!" << "\n";
-					std::cout << "YOU GOT: " << Tom.drop + Marya.drop << "Money" << "\n";
+					std::cout << "YOU GOT: " << Tom.drop + Ivan.drop << "Money" << "\n";
 					Sleep(5000);
 					system("cls");
 				}
@@ -189,8 +201,11 @@ void Start_Game(double* Money, int* Weapon, int* Pet, double* Cost, int* Upgrade
 					std::cout << "________________________________________" << "\n";
 					Sleep(3000);
 					system("cls");
-					std::cout << "YOU LOSE!";
+					std::cout << "YOU LOSE!"<<"\n";
+					*Money += 15;
+					std::cout << "YOU GOT: 15 POINTS" << "\n";
 					Sleep(5000);
+
 					system("cls");
 				}
 			}
@@ -214,15 +229,16 @@ void Start_Game(double* Money, int* Weapon, int* Pet, double* Cost, int* Upgrade
 			*Money += *Weapon;
 		}
 	}
-	Start_Game(Money, Weapon, Pet, Cost, Upgrade1, Upgrade2, (Boss(Tom)), (Boss(Marya)));
+	Start_Game(Money, Weapon, Pet, Cost, Upgrade1, Upgrade2, (Boss(Tom)), (Boss(Ivan)));
 	return;
 }
 
 int main()
 {
-	Boss Tom{ "Tommy_gungsta",100,1000};
-	
-	Boss Marya{"Marya_Knife", 125,2000};
+	Boss Tom{ "Tommy_gungsta",100,1000 };
+	Boss Ivan{ "Ivan", 125,2000 };
+	std::mt19937 gen;
+	gen.seed(time(0));
 
 	int Pet = 0;
 	double Cost = 100;
@@ -230,6 +246,6 @@ int main()
 	int Upgrade2 = 1;
 	int Weapon = 15;
 	double Money = 0;
-	Start_Game(&Money, &Weapon, &Pet, &Cost, &Upgrade1, &Upgrade2, (Boss(Tom)), (Boss(Marya)));
+	Start_Game(&Money, &Weapon, &Pet, &Cost, &Upgrade1, &Upgrade2, (Boss(Tom)), (Boss(Ivan)));
 	return 0;
 }
