@@ -20,7 +20,7 @@ void Fight(int Weapon, int Pet, int Money)
 {
 	std::mt19937 gen;
 	gen.seed(time(0));
-	auto Health = gen() % 100;
+	int Health = gen() % 100;
 	auto move = 5;
 	auto Drop = Health / 10;
 	auto debuff = 0;
@@ -33,7 +33,7 @@ void Fight(int Weapon, int Pet, int Money)
 		if (m == "Cheat")
 		{
 		Money = 0;
-		std::cout << "Go away, Hacker!";
+		std::cout << "Go away, Hacker!" << "\n";
 		}
 		else
 		{
@@ -59,13 +59,13 @@ void Fight(int Weapon, int Pet, int Money)
 	}
 	if (Health > 0)
 	{
-		std::cout << "You lose";
+		std::cout << "You lose" << "\n";
 		Sleep(3000);
 		system("cls");
 	}
 	else
 	{
-		std::cout << "You got: " << Drop << "Money" << "\n";
+		std::cout << "You got: " << "\n" << Drop << "Money" << "\n";
 		Money += Drop;
 		Sleep(3000);
 		system("cls");
