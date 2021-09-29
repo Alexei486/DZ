@@ -262,7 +262,7 @@ int main()
 	auto Cost = 100.0;
 	auto Upgrade1 = 1;
 	auto Upgrade2 = 1;
-	auto Weapon = 15;
+	auto Weapon = 1;
 	auto Money = 0.0;
 	Start_Game(&Money, &Weapon, &Pet, &Cost, &Upgrade1, &Upgrade2, (Boss(Tom)), (Boss(Ivan)));
 	return 0;
