@@ -53,7 +53,7 @@ void To_Spam(double Money, int Weapon, int Pet)
 	std::cout << "press ENTER to farm some money " << "\n";
 	std::cout << "to enter the store write: Shop " << "\n";
 	std::cout << "to enter the boss fight write: Boss " << "\n";
-	std::cout << "to enter the boss fight write: Fight " << "\n";
+	std::cout << "to enter farm fight write: Fight " << "\n";
 	std::cout << "________________________________________" << "\n";
 
 
