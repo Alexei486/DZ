@@ -5,8 +5,6 @@
 #include <time.h>
 #include <dos.h>
 #include <windows.h>
-#include<ctime>
-#include<random>
 struct Boss
 {
 	std::string name1;
@@ -16,56 +14,29 @@ struct Boss
 
 
 
-void Fight(int Weapon, int Pet, int Money)
+void Fight(int Weapon, int Pet,int Money)
 {
-	std::mt19937 gen;
-	gen.seed(time(0));
-	int Health = gen() % 100;
-	auto move = 5;
-	auto Drop = Health / 10;
-	int debuff = 0;
-	std::string m;
+	int Health = rand() % 50;
+	int move = 5;
+	int Drop = Health / 10;
 	while (move != 0)
 	{
-		std::cout << "press ENTER to fight " << "\n";
-		std::getline(std::cin, m);
-		system("cls");
-		if (m == "Cheat")
-		{
-		Money = 0;
-		std::cout << "Go away, Hacker!" << "\n";
-		}
-		else
-		{
-			if (Health > 0)
-			{
-				debuff += gen() % 2;
-				std::cout << "Mob gave you debuff: " << debuff << "\n";
-				std::cout << "Mob Health: " << Health << "\n";
-				std::cout << "summary attack: " << Weapon + Pet - debuff<< "\n";
-				std::cout << "you have " + std::to_string(move) + " moves left" << "\n";
-				Health = Health - Weapon - Pet;
-				--move;
-			}
-			else
-			{
-				std::cout << "Mob Health: " << "0" << "\n";
-				std::cout << "You won! ";
-				break;
-			}
+		std::cout << "Health: " << Health << "\n";
+		std::cout << "summary: " << Weapon + Pet << "\n";
 
-		}
-
+		std::cout << "you have " + std::to_string(move) + " moves left" << "\n";
+		Health = Health - Weapon - Pet ;
+		--move;
 	}
 	if (Health > 0)
 	{
-		std::cout << "You lose" << "\n";
+		std::cout << "You lose";
 		Sleep(3000);
 		system("cls");
 	}
 	else
 	{
-		std::cout << "You got: " << "\n" << Drop << "Money" << "\n";
+		std::cout << "You got: " << Drop <<"Money"<< "\n";
 		Money += Drop;
 		Sleep(3000);
 		system("cls");
@@ -73,10 +44,10 @@ void Fight(int Weapon, int Pet, int Money)
 }
 
 
-void To_Spam(double Money, int Weapon, int Pet)
+void To_Spam(double Money,int Weapon,int Pet)
 {
 	std::cout << "Money: " << Money << "\n";
-	std::cout << "Weapon attack: " << Weapon << "\n";
+	std::cout << "Weapon attack: " << Weapon <<"\n";
 	std::cout << "Pet attack: " << Pet << "\n";
 	std::cout << "What would you like? " << "\n";
 	std::cout << "press ENTER to farm some money " << "\n";
@@ -88,18 +59,18 @@ void To_Spam(double Money, int Weapon, int Pet)
 
 
 
-
+	
 	return;
 }
 
-void Shop(double* Money, int* Weapon, int* Upgrade1, int* Upgrade2, double* Cost, int* Pet)
+void Shop(double *Money,int *Weapon,int *Upgrade1, int *Upgrade2, double *Cost,int *Pet)
 {
 	std::string Text_Shop;
 	std::cout << "Money: " << *Money << "\n";
 	std::cout << "Weapon attack: " << *Weapon << "\n";
 	std::cout << "Pet attack: " << *Pet << "\n";
-	std::cout << "improve weapon(+1 attack) cost: " << pow(1.5, *Upgrade1) * *Cost << "\n";
-	std::cout << "improve pet(+1 attack) cost: " << pow(2, *Upgrade2) * *Cost << "\n";
+	std::cout << "improve weapon(+1 attack) cost: " << pow(1.5 , *Upgrade1) * *Cost << "\n";
+	std::cout << "improve pet(+1 attack) cost: " << pow(2,*Upgrade2) * *Cost << "\n";
 	std::cout << "To purchase enter: Buy weapon " "\n";
 	std::cout << "To purchase enter: Buy pet " "\n";
 	std::cout << "To exit the store, enter: Back " "\n";
@@ -109,11 +80,11 @@ void Shop(double* Money, int* Weapon, int* Upgrade1, int* Upgrade2, double* Cost
 	{
 		if (*Money > pow(1.5, *Upgrade2) * *Cost)
 		{
-			*Money -= pow(1.5, *Upgrade2) * *Cost;
+			*Money -= pow(1.5,* Upgrade2) * *Cost;
 			*Pet += 1;
 			*Upgrade2 += 1;
 			system("cls");
-			std::cout << "\n" << "\n" << "Thank you for your purchase";
+			std::cout <<"\n" << "\n"<< "Thank you for your purchase" ;
 			Sleep(1000);
 			system("cls");
 			Shop(Money, Weapon, Upgrade1, Upgrade2, Cost, Pet);
@@ -152,96 +123,61 @@ void Shop(double* Money, int* Weapon, int* Upgrade1, int* Upgrade2, double* Cost
 	if (Text_Shop == "Back")
 	{
 		system("cls");
-		return;
+	return ;
 	}
-	return;
+	return ;
 }
-void Start_Game(double* Money, int* Weapon, int* Pet, double* Cost, int* Upgrade1, int* Upgrade2, struct Boss Tom, struct  Boss Ivan)
+void Start_Game(double *Money, int *Weapon, int *Pet, double *Cost, int *Upgrade1, int *Upgrade2,struct Boss Tom,struct  Boss Marya )
 {
-	const auto n = 1;
+	int n = 1;
 	std::string m;
 	while (n > -10)
 	{
-		To_Spam(*Money, *Weapon, *Pet);
+		To_Spam(*Money,*Weapon, *Pet);
 		std::getline(std::cin, m);
 		system("cls");
 		if (m == "Shop")
 		{
-			Shop(Money, Weapon, Upgrade1, Upgrade2, Cost, Pet);
+			Shop(Money, Weapon, Upgrade1, Upgrade2,Cost, Pet);
 		}
 		if (m == "Fight")
 		{
-			Fight(*Weapon, *Pet, *Money);
+			Fight(*Weapon,*Pet,*Money);
 		}
 		if (m == "Boss")
 		{
-			std::cout << "You have exactly one attempt to pass the test questions " <<"\n";
+			std::cout << "your attack in the boss fight: "<< 10* *Weapon <<"\n";
 			Sleep(3000);
-			std::cout << "your attack in the boss fight(10*Weapon): " << 10 * *Weapon << "\n";
-			Sleep(3000);
-			std::cout << "Boss name : " << Tom.name1 << "\n" << "Boss health: " << Tom.Health << "\n" << "Drop from the boss: " << Tom.drop << "\n";
+			std::cout << "Boss name : " << Tom.name1 << "\n" << "Boss health: "<< Tom.Health << "\n" << "Drop from the boss: " << Tom.drop << "\n";
 			Sleep(3000);
 			if (Tom.Health < 10 * *Weapon)
 			{
 				system("cls");
-				std::cout << "________________________________________" << "\n";
-				Sleep(3000);
-				std::cout << "There is an attack..." << "\n";
-				Sleep(3000);
-				std::cout << "________________________________________" << "\n";
-				Sleep(3000);
 				std::cout << "Fine. But that is not all";
 				Sleep(3000);
 				system("cls");
-				std::cout << "Boss name : " <<Ivan.name1 << "\n" << "Boss health: " << Ivan.Health << "\n" << "Drop from the boss: " << Ivan.drop << "\n";
+				std::cout << "Boss name : " << Marya.name1 << "\n" << "Boss health: " << Marya.Health << "\n" << "Drop from the boss: " << Marya.drop << "\n";
 				Sleep(3000);
-				if (Ivan.Health < 10 * *Weapon)
+				if (Marya.Health < 10 * *Weapon)
 				{
-					*Money += Ivan.drop;
-					*Money += Tom.drop;
-					std::cout << "________________________________________" << "\n";
-					Sleep(3000);
-					std::cout << "There is an attack..." << "\n";
-					Sleep(3000);
-					std::cout << "________________________________________" << "\n";
-					Sleep(3000);
+					
 					system("cls");
-					std::cout << "YOU WON!!!" << "\n";
-					std::cout << "YOU GOT: " << Tom.drop + Ivan.drop << "Money" << "\n";
+					std::cout << "YOU WON!!!";
 					Sleep(5000);
-					system("cls");
 				}
 				else
 				{
-					std::cout << "________________________________________" << "\n";
-					Sleep(3000);
-					std::cout << "There is an attack..." << "\n";
-					Sleep(3000);
-					std::cout << "________________________________________" << "\n";
-					Sleep(3000);
 					system("cls");
-					std::cout << "YOU LOSE!"<<"\n";
-					*Money += 15;
-					std::cout << "YOU GOT: 15 POINTS FOR KW" << "\n";
+					std::cout << "YOU LOSE!";
 					Sleep(5000);
-
-					system("cls");
 				}
 			}
 			else
 			{
-				std::cout << "________________________________________" << "\n";
-				Sleep(3000);
-				std::cout << "There is an attack..." << "\n";
-				Sleep(3000);
-				std::cout << "________________________________________" << "\n";
-				Sleep(3000);
+
 				system("cls");
 				std::cout << "YOU LOSE!";
-				*Money += 24;
-				std::cout << "YOU GOT: 24 POINTS FOR KW" << "\n";
 				Sleep(5000);
-				system("cls");
 			}
 
 		}
@@ -250,20 +186,28 @@ void Start_Game(double* Money, int* Weapon, int* Pet, double* Cost, int* Upgrade
 			*Money += *Weapon;
 		}
 	}
-	Start_Game(Money, Weapon, Pet, Cost, Upgrade1, Upgrade2, (Boss(Tom)), (Boss(Ivan)));
+	Start_Game (Money, Weapon, Pet, Cost, Upgrade1, Upgrade2, (Boss(Tom)), (Boss(Marya)));
 	return;
 }
 
 int main()
 {
-	Boss Tom{ "Timur_squire_gungsta",100,1000 };
-	Boss Ivan{ "Ivan_SENSEI_GUNGSTA", 125,2000 };
-	auto Pet = 0;
-	auto Cost = 100.0;
-	auto Upgrade1 = 1;
-	auto Upgrade2 = 1;
-	auto Weapon = 1;
-	auto Money = 0.0;
-	Start_Game(&Money, &Weapon, &Pet, &Cost, &Upgrade1, &Upgrade2, (Boss(Tom)), (Boss(Ivan)));
+	Boss Tom;
+	Tom.name1 = "Tommy_gungsta";
+	Tom.Health = 100;
+	Tom.drop = 1000;
+
+	Boss Marya;
+	Marya.name1 = "knife";
+	Marya.Health = 125;
+	Marya.drop = 2000;
+
+		int Pet = 0;
+		double Cost = 100;
+		int Upgrade1 = 1;
+		int Upgrade2 = 1;
+		int Weapon = 15;
+		double Money = 0;
+	Start_Game(  &Money, &Weapon, &Pet, &Cost, &Upgrade1, &Upgrade2,( Boss (Tom)), (Boss(Marya)));
 	return 0;
 }
