@@ -32,5 +32,5 @@ void monthTodays(Month month)
 
 int main()
 {
-	monthTodays(Month(2));
+	monthTodays(Month(1));
 }
