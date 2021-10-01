@@ -8,7 +8,7 @@ struct times
 	int H : 7;
 	int min : 7;
 	int sec : 7;
-	int msec : 10;
+	int msec : 11;
 };
 void printInformation(times good)
 {
