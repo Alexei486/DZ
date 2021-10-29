@@ -1,0 +1,36 @@
+String evaluate_salary_and_return_name (#1 Employee e)
+{
+    if (#2 e.title() #3 == "CEO" || #10 e.salary() #11 > 100000)
+    {
+        std::cout #6 << #4 e.name () << " " #7 << #5 e.surname () << " is overpaid .\n";
+    } else {
+        std::cout #13 << #12 e.name () << " is not overpaid .\n";
+    }
+    return e.name() #8 + " " #9 + #14 e.surname();
+}
+
+#1 -> exp
+#1 -> #2 -> exp
+#1 -> #2 -> #3 -> exp
+... -> #3 -> true -> #4 -> exp
+... -> #4 -> #5 -> exp
+... -> #5 -> #6 -> exp
+... -> #6 -> #7 -> exp
+... -> #7 -> #8 -> exp
+... -> #8 -> #9 -> exp
+... -> #9 -> return
+#1 -> #2 -> #3 -> false -> #10 -> exp
+... -> #10 -> #11 -> exp
+... -> #11 -> true -> #4 -> exp
+... -> #4 -> #5 -> exp
+... -> #5 -> #6 -> exp
+... -> #6 -> #7 -> exp
+... -> #7 -> #8 -> exp
+... -> #8 -> #9 -> exp
+... -> #9 -> return
+#1 -> #2 -> #3 -> false -> #10 -> #11 -> false -> #12 -> exp
+... -> #12 -> #13 -> exp
+... -> #13 -> #8 -> exp
+... -> #8 -> #14 -> exp
+... -> #14 -> #9 -> exp
+... -> #9 -> return

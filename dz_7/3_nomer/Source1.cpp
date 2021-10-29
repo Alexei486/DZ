@@ -1,0 +1,101 @@
+#include "Header.h"
+#include <numeric>
+void test1()
+{
+    Li::Fraction f1(2, 4);
+    f1.print();
+    std::cout << f1.operator double() << std::endl;
+    Li::Fraction f2(7, 9);
+    f2.print();
+    std::cout << f2.operator double() << std::endl;
+    Li::Fraction f3 = f1 * f2;
+    f3.print();
+    std::cout << f3.operator double() << std::endl;
+    Li::Fraction f4 = f1 * 42;
+    f4.print();
+    std::cout << f4.operator double() << std::endl;
+    Li::Fraction f5 = 42 * f2;
+    f5.print();
+    std::cout << f5.operator double() << std::endl;
+    Li::Fraction f6 = Li::Fraction(1, 2) * Li::Fraction(2, 3) * Li::Fraction(3, 4);
+    f6.print();
+    std::cout << f6.operator double() << std::endl;
+    Li::Fraction f7 = f1 / f2;
+    f7.print();
+    std::cout << f7.operator double() << std::endl;
+    Li::Fraction f8 = f1 / 42;
+    f8.print();
+    std::cout << f8.operator double() << std::endl;
+    Li::Fraction f9 = 42 / f2;
+    f9.print();
+    std::cout << f9.operator double() << std::endl;
+    Li::Fraction f10 = Li::Fraction(1, 2) * Li::Fraction(2, 3) * Li::Fraction(3, 4);
+    f10.print();
+    std::cout << f10.operator double() << std::endl;
+    Li::Fraction f11 = f1 + f2;
+    f11.print();
+    std::cout << f11.operator double() << std::endl;
+    Li::Fraction f12 = Li::Fraction(1, 2) + Li::Fraction(2, 3) + Li::Fraction(3, 4);
+    f12.print();
+    std::cout << f12.operator double() << std::endl;
+    Li::Fraction f13 = f1 - f2;
+    f13.print();
+    std::cout << f13.operator double() << std::endl;
+    Li::Fraction f14 = Li::Fraction(1, 2) - Li::Fraction(2, 3) - Li::Fraction(3, 4);
+    f14.print();
+    std::cout << f14.operator double() << std::endl;
+    Li::Fraction f15 = f1 + 42;
+    f15.print();
+    std::cout << f15.operator double() << std::endl;
+    Li::Fraction f16 = 42 + f2;
+    f16.print();
+    std::cout << f16.operator double() << std::endl;
+    Li::Fraction a(4, 5);
+    a += Li::Fraction(5, 2);
+    a.print();
+    std::cout << a.operator double() << std::endl;
+    Li::Fraction b(4, 5);
+    b -= Li::Fraction(5, 2);
+    b.print();
+    std::cout << b.operator double() << std::endl;
+    Li::Fraction c(4, 5);
+    c *= Li::Fraction(5, 2);
+    c.print();
+    std::cout << c.operator double() << std::endl;
+    Li::Fraction d(4, 5);
+    d /= Li::Fraction(5, 2);
+    d.print();
+    std::cout << d.operator double() << std::endl;
+    Li::Fraction f101(2, 4);
+    Li::Fraction f19 = f101++;
+    f19.print();
+    std::cout << f19.operator double() << std::endl;
+    Li::Fraction f102(2, 4);
+    Li::Fraction f20 = ++f102;
+    f20.print();
+    std::cout << f20.operator double() << std::endl;
+    Li::Fraction f100(2, 4);
+    Li::Fraction f21 = f100--;
+    f21.print();
+    std::cout << f21.operator double() << std::endl;
+    Li::Fraction f103(2, 4);
+    Li::Fraction f22 = --f103;
+    f22.print();
+    std::cout << f22.operator double() << std::endl;
+    Li::Fraction a5(2, 5);
+    std::cin >> a5;
+    std::cout << a5 << std::endl;
+    Li::Fraction a6(2, 6);
+    std::cout << a6;
+    Li::Fraction f404 = f1 == 42;
+    f404.print();
+    f404.print1();
+    Li::Fraction f707 = f1 / 0;
+    f707.print();
+    std::cout << "kek";
+}
+
+int main()
+{
+    test1();
+}
