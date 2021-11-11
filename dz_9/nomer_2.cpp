@@ -12,6 +12,6 @@ int main()
 {
 	auto kek = func<int>(5);
 	std::cout << *kek;
-	delete kek;
+	delete[] kek;
 	return 0;
 }
